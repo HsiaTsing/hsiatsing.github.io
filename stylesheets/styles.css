@@ -606,10 +606,12 @@ strong {
 
 .wrapper {
   max-width: 880px;
+  min-width: 620px;
   margin: 0 auto;
   position: relative;
   padding: 0 20px;
 }
+
 
 section img {
   max-width: 100%;
