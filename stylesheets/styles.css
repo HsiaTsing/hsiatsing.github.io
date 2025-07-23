@@ -606,7 +606,7 @@ strong {
 
 .wrapper {
   max-width: 860px;
-  min-width: 600px;
+  min-width: 860px;
   margin: auto auto;
   position: relative;
   padding: 20px 20px;
