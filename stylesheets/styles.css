@@ -587,7 +587,6 @@ a {
 a:hover {
   color: #0000dd;
 }
-
 a small {
   font-size: 11px;
   color: #666;
@@ -651,8 +650,8 @@ pre {
   border-radius: 2px;
   border: 1px solid #121212;
   -moz-box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.3);
-  -webkit-box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.3);
-  -o-box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.3);
+  -webkit-box-shadow: inset 0px 1px 3px rgba(0, 0, 0, 0.3);
+  -o-box-shadow: inset 0px 1px 3px rgba(0, 0, 0, 0.3);
   box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.3);
   overflow: auto;
   overflow-y: hidden;
