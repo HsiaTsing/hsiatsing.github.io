@@ -614,8 +614,35 @@ strong {
 }
 
 /* Homepage profile and research overview */
+.profile-section::after {
+  display: table;
+  clear: both;
+  content: "";
+}
+
+.profile-media {
+  float: left;
+  width: 150px;
+  margin-top: 6px;
+}
+
+.profile-portrait {
+  display: block;
+  width: 150px;
+  height: 150px;
+}
+
+.profile-links {
+  margin: 12px 0 0;
+  line-height: 20px;
+  text-align: center;
+  white-space: nowrap;
+}
+
 .subwrapper {
   min-height: 190px;
+  margin-left: 170px;
+  margin-bottom: 0;
 }
 
 .recruiting {
@@ -634,7 +661,7 @@ strong {
 
 .research-intro {
   margin: -2px 0 18px;
-  color: #444;
+  color: #000;
 }
 
 .research-item {
@@ -952,12 +979,31 @@ section #title .credits.right {
     display: block;
   }
 }
-@media print, screen and (max-width: 480px) {
+
+@media screen and (max-width: 560px) and (orientation: portrait) {
+  .profile-section,
+  .profile-media,
+  .subwrapper {
+    box-sizing: border-box;
+    width: 100%;
+  }
+
+  .profile-media {
+    float: none;
+    margin: 10px auto 16px;
+  }
+
+  .profile-portrait {
+    margin: 0 auto;
+  }
+
   .subwrapper {
     min-height: 0;
     margin-left: 0;
   }
+}
 
+@media print, screen and (max-width: 480px) {
   .research-copy h3 {
     font-size: 18px;
   }
