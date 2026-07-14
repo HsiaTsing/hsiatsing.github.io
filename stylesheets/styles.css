@@ -960,8 +960,9 @@ section #title .credits.right {
   }
 
   .research-figure img {
+    width: 100%;
     height: auto;
-    max-height: 280px;
+    max-height: none;
   }
 
   #title .credits {
