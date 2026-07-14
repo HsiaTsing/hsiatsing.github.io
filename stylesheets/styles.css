@@ -613,6 +613,89 @@ strong {
   background-color: #ffffff;
 }
 
+/* Homepage profile and research overview */
+.subwrapper {
+  min-height: 190px;
+}
+
+.recruiting {
+  color: #c00;
+}
+
+.news-list {
+  margin-bottom: 32px;
+}
+
+.research-section {
+  max-width: none;
+  margin: 8px 0 30px;
+  padding: 0;
+}
+
+.research-intro {
+  margin: -2px 0 18px;
+  color: #444;
+}
+
+.research-item {
+  display: flex;
+  gap: 22px;
+  align-items: center;
+  margin: 0;
+  padding: 20px 0;
+  border-top: 1px solid #ddd;
+}
+
+.research-item-reverse {
+  flex-direction: row-reverse;
+}
+
+.research-figure {
+  flex: 0 0 330px;
+  display: block;
+}
+
+.research-figure-wide {
+  flex-basis: 370px;
+}
+
+.research-figure img {
+  display: block;
+  width: 100%;
+  height: auto;
+  background: #fff;
+}
+
+.research-copy {
+  min-width: 0;
+}
+
+.research-copy h3 {
+  margin-bottom: 8px;
+  color: #222;
+  font-size: 19px;
+}
+
+.research-copy p {
+  margin-bottom: 9px;
+  font-size: 15px;
+  line-height: 1.55;
+}
+
+.research-topics {
+  color: #666;
+  font-size: 13px !important;
+}
+
+.all-publications {
+  margin: -4px 0 0;
+  padding-top: 12px;
+  border-top: 1px solid #e7e7e7;
+  color: #555;
+  font-size: 14px;
+  text-align: right;
+}
+
 
 section img {
   max-width: 100%;
@@ -825,6 +908,35 @@ section #title .credits.right {
 }
 
 @media print, screen and (max-width: 720px) {
+  body {
+    padding: 0;
+  }
+
+  .wrapper {
+    box-sizing: border-box;
+    width: 100%;
+    min-width: 0;
+    padding: 20px;
+  }
+
+  .research-item,
+  .research-item-reverse {
+    align-items: flex-start;
+    gap: 18px;
+    flex-direction: column;
+  }
+
+  .research-figure {
+    box-sizing: border-box;
+    width: 100%;
+    flex-basis: auto;
+  }
+
+  .research-figure img {
+    height: auto;
+    max-height: 280px;
+  }
+
   #title .credits {
     display: block;
     width: 100%;
@@ -841,6 +953,19 @@ section #title .credits.right {
   }
 }
 @media print, screen and (max-width: 480px) {
+  .subwrapper {
+    min-height: 0;
+    margin-left: 0;
+  }
+
+  .research-copy h3 {
+    font-size: 18px;
+  }
+
+  .all-publications {
+    text-align: left;
+  }
+
   #header {
     margin-top: -20px;
   }
