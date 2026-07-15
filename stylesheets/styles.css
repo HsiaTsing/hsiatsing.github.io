@@ -653,6 +653,45 @@ strong {
   margin-bottom: 32px;
 }
 
+.news-more {
+  margin-top: 4px;
+}
+
+.news-more summary {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+  color: #999;
+  font-size: 12px;
+  letter-spacing: .08em;
+  line-height: 18px;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.news-more summary::after {
+  flex: 1;
+  border-top: 1px solid #ddd;
+  content: "";
+}
+
+.news-more summary span::after {
+  content: " +";
+  letter-spacing: 0;
+}
+
+.news-more[open] summary span::after {
+  content: " \2212";
+}
+
+.news-more summary:hover {
+  color: #39c;
+}
+
+.news-more-content {
+  margin-top: 2px;
+}
+
 .research-section {
   max-width: none;
   margin: 8px 0 30px;
