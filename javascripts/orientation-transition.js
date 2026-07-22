@@ -10,7 +10,7 @@
   var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
   var activeAnimations = [];
   var transitionId = 0;
-  var resizeTimer = null;
+  var resizeFrame = null;
   var savedGroups = null;
   var savedWrapperRect = null;
   var pendingLayout = false;
@@ -235,8 +235,13 @@
   }
 
   function scheduleLayoutChange() {
-    window.clearTimeout(resizeTimer);
-    resizeTimer = window.setTimeout(handleLayoutChange, 100);
+    if (resizeFrame !== null) {
+      window.cancelAnimationFrame(resizeFrame);
+    }
+    resizeFrame = window.requestAnimationFrame(function () {
+      resizeFrame = null;
+      handleLayoutChange();
+    });
   }
 
   [compactLayout, stackedLayout, narrowLayout].forEach(function (mediaQuery) {

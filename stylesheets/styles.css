@@ -977,7 +977,7 @@ section #title .credits.right {
   float: right;
 }
 
-@media print {
+@media print, screen and (max-width: 720px) {
   body {
     padding: 0;
   }
@@ -1024,71 +1024,30 @@ section #title .credits.right {
   }
 }
 
-html.compact-layout body {
-  padding: 0;
+@media screen and (max-width: 560px) and (orientation: portrait) {
+  .profile-section,
+  .profile-media,
+  .subwrapper {
+    box-sizing: border-box;
+    width: 100%;
+  }
+
+  .profile-media {
+    float: none;
+    margin: 10px auto 16px;
+  }
+
+  .profile-portrait {
+    margin: 0 auto;
+  }
+
+  .subwrapper {
+    min-height: 0;
+    margin-left: 0;
+  }
 }
 
-html.compact-layout .wrapper {
-  box-sizing: border-box;
-  width: 100%;
-  min-width: 0;
-  padding: 20px;
-}
-
-html.compact-layout .research-item,
-html.compact-layout .research-item-reverse {
-  align-items: flex-start;
-  gap: 18px;
-  flex-direction: column;
-}
-
-html.compact-layout .research-figure {
-  box-sizing: border-box;
-  width: 100%;
-  flex-basis: auto;
-}
-
-html.compact-layout .research-figure img {
-  width: 100%;
-  height: auto;
-  max-height: none;
-}
-
-html.compact-layout #title .credits {
-  display: block;
-  width: 100%;
-  line-height: 30px;
-  text-align: center;
-}
-
-html.compact-layout #title .credits .left,
-html.compact-layout #title .credits .right {
-  float: none;
-  display: block;
-}
-
-html.profile-stacked .profile-section,
-html.profile-stacked .profile-media,
-html.profile-stacked .subwrapper {
-  box-sizing: border-box;
-  width: 100%;
-}
-
-html.profile-stacked .profile-media {
-  float: none;
-  margin: 10px auto 16px;
-}
-
-html.profile-stacked .profile-portrait {
-  margin: 0 auto;
-}
-
-html.profile-stacked .subwrapper {
-  min-height: 0;
-  margin-left: 0;
-}
-
-@media print {
+@media print, screen and (max-width: 480px) {
   .research-copy h3 {
     font-size: 18px;
   }
@@ -1108,24 +1067,4 @@ html.profile-stacked .subwrapper {
   nav {
     display: none;
   }
-}
-
-html.narrow-layout .research-copy h3 {
-  font-size: 18px;
-}
-
-html.narrow-layout .all-publications {
-  text-align: left;
-}
-
-html.narrow-layout #header {
-  margin-top: -20px;
-}
-
-html.narrow-layout section {
-  margin-top: 40px;
-}
-
-html.narrow-layout nav {
-  display: none;
 }
