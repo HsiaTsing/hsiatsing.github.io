@@ -624,6 +624,7 @@ strong {
   float: left;
   width: 150px;
   margin-top: 6px;
+  view-transition-name: profile-media;
 }
 
 .profile-portrait {
@@ -643,6 +644,19 @@ strong {
   min-height: 190px;
   margin-left: 170px;
   margin-bottom: 0;
+  view-transition-name: profile-copy;
+}
+
+::view-transition-group(root),
+::view-transition-group(profile-media),
+::view-transition-group(profile-copy) {
+  animation-duration: 380ms;
+  animation-timing-function: cubic-bezier(.22, 1, .36, 1);
+}
+
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation-duration: 380ms;
 }
 
 .recruiting {
@@ -1020,26 +1034,34 @@ section #title .credits.right {
   }
 }
 
-@media screen and (max-width: 560px) and (orientation: portrait) {
-  .profile-section,
-  .profile-media,
-  .subwrapper {
-    box-sizing: border-box;
-    width: 100%;
-  }
+html.profile-stacked .profile-section,
+html.profile-stacked .profile-media,
+html.profile-stacked .subwrapper {
+  box-sizing: border-box;
+  width: 100%;
+}
 
-  .profile-media {
-    float: none;
-    margin: 10px auto 16px;
-  }
+html.profile-stacked .profile-media {
+  float: none;
+  margin: 10px auto 16px;
+}
 
-  .profile-portrait {
-    margin: 0 auto;
-  }
+html.profile-stacked .profile-portrait {
+  margin: 0 auto;
+}
 
-  .subwrapper {
-    min-height: 0;
-    margin-left: 0;
+html.profile-stacked .subwrapper {
+  min-height: 0;
+  margin-left: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-group(root),
+  ::view-transition-group(profile-media),
+  ::view-transition-group(profile-copy),
+  ::view-transition-old(root),
+  ::view-transition-new(root) {
+    animation-duration: 0.01ms;
   }
 }
 
