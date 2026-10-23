@@ -87,7 +87,7 @@
     }
 
     Array.prototype.forEach.call(
-      document.querySelectorAll(".research-item"),
+      document.querySelectorAll(".research-item:not([hidden])"),
       function (item) {
         groups.push(captureGroup(item, [
           item.querySelector(".research-figure"),
@@ -261,4 +261,5 @@
   }
 
   window.addEventListener("load", saveLayoutSnapshot);
+  window.addEventListener("researchtabchange", saveLayoutSnapshot);
 })();

@@ -1,7 +1,7 @@
 (function () {
   "use strict";
 
-  var visibleNewsCount = 12;
+  var visibleNewsCount = 10;
 
   function foldOlderNews() {
     var newsList = document.querySelector(".news-list");
