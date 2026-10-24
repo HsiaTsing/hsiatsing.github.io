@@ -18,24 +18,38 @@
       return;
     }
 
-    var details = document.createElement("details");
-    var summary = document.createElement("summary");
-    var label = document.createElement("span");
+    var toggle = document.createElement("button");
     var content = document.createElement("div");
+    var lastVisibleItem = newsItems[visibleNewsCount - 1];
+    var olderCount = newsItems.length - visibleNewsCount;
 
-    details.className = "news-more";
-    label.textContent = "More";
+    toggle.type = "button";
+    toggle.className = "news-toggle";
+    toggle.setAttribute("aria-controls", "older-news");
+    toggle.setAttribute("aria-expanded", "false");
+    toggle.setAttribute("aria-label", "Show " + olderCount + " older news items");
+    toggle.title = "Show older news";
+    content.id = "older-news";
     content.className = "news-more-content";
-
-    summary.appendChild(label);
-    details.appendChild(summary);
-    details.appendChild(content);
+    content.hidden = true;
 
     newsItems.slice(visibleNewsCount).forEach(function (item) {
       content.appendChild(item);
     });
 
-    newsList.appendChild(details);
+    lastVisibleItem.classList.add("news-item-toggle");
+    lastVisibleItem.appendChild(toggle);
+    newsList.appendChild(content);
+
+    toggle.addEventListener("click", function () {
+      var expanded = toggle.getAttribute("aria-expanded") !== "true";
+      content.hidden = !expanded;
+      toggle.setAttribute("aria-expanded", String(expanded));
+      toggle.setAttribute("aria-label", expanded ? "Hide older news items" :
+        "Show " + olderCount + " older news items");
+      toggle.title = expanded ? "Hide older news" : "Show older news";
+      window.dispatchEvent(new Event("newstoggle"));
+    });
   }
 
   if (document.readyState === "loading") {

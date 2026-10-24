@@ -262,4 +262,5 @@
 
   window.addEventListener("load", saveLayoutSnapshot);
   window.addEventListener("researchtabchange", saveLayoutSnapshot);
+  window.addEventListener("newstoggle", saveLayoutSnapshot);
 })();
