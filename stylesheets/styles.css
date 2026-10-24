@@ -659,6 +659,12 @@ strong {
   margin-bottom: 12px;
 }
 
+/* Match visibleNewsCount in news.js; hide older entries before deferred JS runs.
+   JS moves them into a nested container, where this rule no longer applies. */
+.news-list > .news-item:nth-child(n + 11) {
+  display: none;
+}
+
 .news-item-toggle {
   position: relative;
   padding-right: 30px;
