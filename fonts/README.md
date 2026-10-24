@@ -32,3 +32,8 @@ particular, the Chinese font currently covers only the heading above.
 the platforms that prefer it. The stylesheet uses `font-display: swap` to keep
 text readable during loading. Research labels are measured again after
 `document.fonts.ready` resolves.
+
+The main stylesheet URL in `index.html` includes a version token so a new
+font configuration does not reuse an older browser-cached stylesheet. Update
+that token when changing font declarations or platform-specific font stacks
+(the first 12 characters of `git hash-object stylesheets/styles.css` can be used).
