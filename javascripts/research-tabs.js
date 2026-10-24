@@ -114,6 +114,7 @@
       tab.setAttribute("aria-selected", String(selected));
       tab.tabIndex = selected ? 0 : -1;
       panels[tabIndex].hidden = !selected;
+      panels[tabIndex].inert = !selected;
     });
 
     fitTabLabels();

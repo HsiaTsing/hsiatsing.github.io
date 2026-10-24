@@ -317,12 +317,33 @@ strong {
 /* Share one grid cell so every tab reserves the tallest panel's natural height. */
 .research-tabs-enabled .research-panels .research-item {
   grid-area: 1 / 1;
+  opacity: 1;
 }
 
 .research-tabs-enabled .research-panels .research-item[hidden] {
   display: grid;
   visibility: hidden;
+  opacity: 0;
   pointer-events: none;
+}
+
+@media screen and (prefers-reduced-motion: no-preference) {
+  .research-tabs-enabled .research-panels .research-item {
+    transition: opacity 420ms cubic-bezier(.4, 0, .2, 1), visibility 0s;
+  }
+
+  .research-tabs-enabled .research-panels .research-item[hidden] {
+    transition-delay: 0s, 420ms;
+  }
+
+  .research-tabs button {
+    transition: color 220ms ease, background-color 220ms ease,
+      border-bottom-color 220ms ease;
+  }
+
+  .news-toggle::before {
+    transition: transform 360ms ease-in-out;
+  }
 }
 
 @media print {
@@ -340,6 +361,7 @@ strong {
 
   .research-tabs-enabled .research-panels .research-item[hidden] {
     visibility: visible;
+    opacity: 1;
   }
 }
 
