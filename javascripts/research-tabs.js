@@ -166,6 +166,14 @@
   window.addEventListener("resize", fitTabLabels);
   window.addEventListener("load", scheduleLabelLayout);
 
+  // Web fonts can arrive after the first label measurement.
+  if (document.fonts && document.fonts.ready) {
+    document.fonts.ready.then(function () {
+      fitTabLabels();
+      window.dispatchEvent(new Event("researchtabchange"));
+    });
+  }
+
   if (window.ResizeObserver) {
     var observedWidth = null;
     var labelObserver = new ResizeObserver(function (entries) {
