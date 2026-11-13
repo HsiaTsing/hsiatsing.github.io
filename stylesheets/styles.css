@@ -164,10 +164,28 @@ strong {
 }
 
 .profile-links {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 3px;
   margin: 12px 0 0;
-  line-height: 20px;
-  text-align: center;
-  white-space: nowrap;
+}
+
+.profile-links a {
+  display: grid;
+  place-items: center;
+  flex: 0 0 22px;
+  width: 22px;
+  height: 24px;
+  line-height: 0;
+}
+
+/* Icon alignment is baked into the PNG canvases. */
+.profile-link-icon {
+  display: block;
+  width: 22px;
+  height: 22px;
+  overflow: hidden;
 }
 
 .subwrapper {
@@ -307,6 +325,7 @@ strong {
 }
 
 .research-tabs-enabled .research-item {
+  padding-top: 8px;
   border-top: 0;
 }
 
@@ -367,7 +386,7 @@ strong {
 
 .research-item {
   display: grid;
-  grid-template-columns: minmax(0, 40%) minmax(0, 1fr);
+  grid-template-columns: minmax(0, 28%) minmax(0, 1fr);
   column-gap: 20px;
   row-gap: 8px;
   align-content: center;
@@ -380,6 +399,9 @@ strong {
 .research-figure {
   display: block;
   min-width: 0;
+  width: 100%;
+  max-width: 240px;
+  margin: 0 auto;
 }
 
 .research-figure img {
@@ -388,7 +410,7 @@ strong {
   max-width: 100%;
   height: auto;
   object-fit: contain;
-  background: #fff;
+  background: transparent;
 }
 
 .research-copy {
@@ -428,7 +450,7 @@ hr {
   outline: none;
   height: 2px;
   color: #e0e0e0;
-  background: transparent url("../images/hr.gif") center center repeat-x;
+  background: transparent url("../images/divider.gif") center center repeat-x;
   margin: 0 0 20px;
 }
 
@@ -450,17 +472,8 @@ hr {
     row-gap: 10px;
   }
 
-  .research-figure {
-    box-sizing: border-box;
-    width: 100%;
-    max-width: 420px;
-    margin: 0 auto;
-  }
-
   .research-figure img {
-    width: 100%;
-    height: auto;
-    max-height: 265px;
+    max-height: 180px;
   }
 
 }
