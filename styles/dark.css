@@ -25,6 +25,9 @@
   }
   .publication-figure { border-color: #4b5868; }
   .publication-copy h3 { color: #93c4ec; }
+  .publication-authors strong {
+    color: #d8edff;
+  }
   .research-tabs button { color: #bdc8d4; }
   .research-tabs button:hover, .news-toggle:hover {
     background: #293544;

@@ -617,6 +617,12 @@ hr {
   color: #666;
   font-size: 13px;
 }
+/* Give the profile owner a clear emphasis within the muted author list. */
+.publication-authors strong {
+  color: #242424;
+  font-weight: 700;
+  white-space: nowrap;
+}
 /* Keep the overview compact above the independent publication list. */
 .research-item { align-content: start; padding-bottom: 12px; }
 @media screen and (max-width: 720px) {
