@@ -1,4 +1,4 @@
-/* Self-hosted fonts: sources and licenses are documented in fonts/README.md. */
+/* Self-hosted fonts; licenses: ../fonts/Gelasio-OFL.txt and ../fonts/NotoSerifSC-OFL.txt. */
 @font-face {
   font-family: "Gelasio";
   font-style: normal;
@@ -333,10 +333,11 @@ strong {
   display: grid;
 }
 
-/* Share one grid cell so every tab reserves the tallest panel's natural height. */
+/* Overlap the overview panels so switching areas keeps the fixed paper list in place. */
 .research-tabs-enabled .research-panels .research-item {
   grid-area: 1 / 1;
   opacity: 1;
+  align-self: start;
 }
 
 .research-tabs-enabled .research-panels .research-item[hidden] {
@@ -379,6 +380,7 @@ strong {
   }
 
   .research-tabs-enabled .research-panels .research-item[hidden] {
+    display: grid;
     visibility: visible;
     opacity: 1;
   }
@@ -445,8 +447,8 @@ strong {
 }
 
 .all-publications {
-  margin: -4px 0 0;
-  padding-top: 12px;
+  margin: 0;
+  padding-top: 14px;
   border-top: 1px solid #e7e7e7;
   color: #555;
   font-size: 14px;
@@ -523,4 +525,136 @@ hr {
     text-align: left;
   }
 
+}
+
+
+/* One shared publication list, outside the research tab panels. */
+.selected-publications {
+  min-width: 0;
+  margin: 12px 0 8px;
+}
+.selected-publications-heading {
+  padding-bottom: 8px;
+  border-bottom: 1px solid #ddd;
+}
+.selected-publications-heading h2 {
+  margin: 0;
+  color: #333;
+  font-size: 16px;
+  font-weight: bold;
+  line-height: 1.5;
+}
+.publication-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.publication-item {
+  display: grid;
+  --publication-image-height: 120px;
+  grid-template-columns: minmax(0, 220px) minmax(0, 1fr);
+  gap: 22px;
+  align-items: start;
+  padding: 20px 0;
+}
+.publication-item + .publication-item {
+  border-top: 1px solid #eaeaea;
+}
+/* Images are pre-fitted offline to the 218 x 118px inner frame at 2x resolution.
+   Two title lines, two author lines and one source line occupy about 120px. */
+.publication-figure {
+  position: relative;
+  box-sizing: border-box;
+  align-self: start;
+  width: 220px;
+  max-width: 100%;
+  height: var(--publication-image-height);
+  margin: 0;
+  overflow: hidden;
+  border: 1px solid #e4e9ed;
+  border-radius: 4px;
+}
+.publication-figure > a { position: absolute; inset: 0; display: block; }
+.publication-figure img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  aspect-ratio: auto;
+  object-fit: fill;
+}
+.publication-copy { min-width: 0; }
+.publication-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 12px;
+  margin: 0 0 7px;
+  color: #666;
+  font-size: 12px;
+}
+.publication-placeholder,
+.publication-tag {
+  padding: 1px 6px;
+  border: 1px solid #dbe5ed;
+  border-radius: 3px;
+  background: #f4f8fb;
+  color: #526b7c;
+  font-size: 11px;
+}
+.publication-copy h3 {
+  margin: 0 0 5px;
+  color: #24577d;
+  font-size: 16px;
+  font-weight: bold;
+  line-height: 1.4;
+  overflow-wrap: anywhere;
+}
+.publication-authors {
+  margin: 0 0 6px;
+  color: #666;
+  font-size: 13px;
+}
+/* Keep the overview compact above the independent publication list. */
+.research-item { align-content: start; padding-bottom: 12px; }
+@media screen and (max-width: 720px) {
+  .research-item { grid-template-rows: 170px auto; }
+  .publication-item { grid-template-columns: 220px minmax(0, 1fr); gap: 18px; }
+}
+@media screen and (max-width: 560px) {
+  .publication-item {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 14px;
+  }
+}
+@media print {
+  .research-item { grid-template-rows: auto; }
+  .publication-item { break-inside: avoid; }
+}
+
+.publication-copy h3 a { color: inherit; font-weight: inherit; }
+.publication-copy h3 a:hover { color: #3677a9; text-decoration: underline; }
+
+
+.publication-source {
+  margin: 0;
+  color: #555;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+/* Leave a clear gap between the final paper and the full-list divider. */
+.publication-item:last-child { padding-bottom: 24px; }
+.corresponding-author { font-size: 0.75em; line-height: 0; vertical-align: super; }
+
+/* Fitting and whitespace optimization are baked into the 436 x 236px image files. */
+.publication-figure img { background: #fff; }
+.publication-item[data-placeholder] h3 { color: #666; }
+
+.publication-author-list[title] { cursor: help; }
+
+/* The long NC title uses three lines; its authors occupy just one line. */
+.publication-item-compact-authors .publication-authors {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
