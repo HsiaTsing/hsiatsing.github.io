@@ -1,0 +1,50 @@
+/* Loaded for the system theme by default; theme.js applies a saved or manual choice. */
+@media screen {
+  html {
+    color-scheme: dark;
+    --muted-color: #aeb9c6;
+    background-color: #12171d;
+  }
+
+  body { background: #12171d; color: #e6edf3; }
+  .wrapper { background-color: #1b2129; color: #e6edf3; }
+  h1, h2, h3, .research-intro, .research-copy h3,
+  .selected-publications-heading h2 { color: #e6edf3; }
+  a, .news-toggle { color: #93c4ec; }
+  a:hover, .publication-copy h3 a:hover { color: #c4e2fa; }
+  .recruiting { color: #ffaaa5; }
+  .research-copy .research-topics, .all-publications,
+  .publication-authors, .publication-source, .publication-meta {
+    color: var(--muted-color);
+  }
+
+  hr { background: #3b4653; }
+  .research-item, .research-tabs, .selected-publications-heading,
+  .publication-item + .publication-item, .all-publications {
+    border-color: #3b4653;
+  }
+  .publication-figure { border-color: #4b5868; }
+  .publication-copy h3 { color: #93c4ec; }
+  .research-tabs button { color: #bdc8d4; }
+  .research-tabs button:hover, .news-toggle:hover {
+    background: #293544;
+    color: #c4e2fa;
+  }
+  .research-tabs button[aria-selected="true"] {
+    border-bottom-color: #93c4ec;
+    background: #263443;
+    color: #c4e2fa;
+  }
+  .news-toggle:focus-visible, .research-tabs button:focus-visible,
+  .research-item:focus-visible { outline-color: #93c4ec; }
+  .profile-link-icon-light, .theme-toggle-moon { opacity: 0; }
+  .profile-link-icon-dark, .theme-toggle-sun { opacity: 1; }
+  .theme-toggle {
+    border-color: #4b5868;
+    background: #232d39;
+    color: #e6edf3;
+    box-shadow: 0 3px 12px #0005;
+  }
+  .theme-toggle:hover { background: #304052; }
+  .theme-toggle:focus-visible { outline-color: #93c4ec; }
+}

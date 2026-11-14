@@ -475,11 +475,14 @@ hr {
     min-width: 0;
     padding: 20px;
   }
+}
 
+/* Keep research figures beside the description until the viewport is truly narrow. */
+@media print, screen and (max-width: 560px) {
   .research-item {
     grid-template-columns: minmax(0, 1fr);
     align-content: stretch;
-    grid-template-rows: 170px minmax(0, 1fr);
+    grid-template-rows: 170px auto;
     row-gap: 18px;
   }
 
@@ -617,7 +620,6 @@ hr {
 /* Keep the overview compact above the independent publication list. */
 .research-item { align-content: start; padding-bottom: 12px; }
 @media screen and (max-width: 720px) {
-  .research-item { grid-template-rows: 170px auto; }
   .publication-item { grid-template-columns: 220px minmax(0, 1fr); gap: 18px; }
 }
 @media screen and (max-width: 560px) {
@@ -657,4 +659,64 @@ hr {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+}
+
+/* The two icon sets share their existing 22px canvas and alignment. */
+.profile-link-icon-light, .profile-link-icon-dark { grid-area: 1 / 1; }
+.profile-link-icon-dark, .theme-toggle-sun { opacity: 0; }
+
+.theme-toggle {
+  position: fixed;
+  left: max(16px, env(safe-area-inset-left));
+  bottom: max(16px, env(safe-area-inset-bottom));
+  z-index: 100;
+  box-sizing: border-box;
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  padding: 10px;
+  border: 1px solid #cad3dc;
+  border-radius: 50%;
+  background: #fff;
+  color: #3b5266;
+  box-shadow: 0 3px 12px #142b4320;
+  cursor: pointer;
+  touch-action: manipulation;
+}
+.theme-toggle[hidden] { display: none; }
+.theme-toggle svg { grid-area: 1 / 1; width: 22px; height: 22px; }
+.theme-toggle:hover { background: #eff4f8; }
+.theme-toggle:focus-visible { outline: 2px solid #3677a9; outline-offset: 3px; }
+@media screen and (prefers-reduced-motion: no-preference) {
+  .theme-toggle { transition: background-color 180ms ease, border-color 180ms ease; }
+}
+@media print {
+  .theme-toggle { display: none; }
+}
+
+/* Crossfade a single page snapshot so inherited text and backgrounds share one timeline. */
+@media screen and (prefers-reduced-motion: no-preference) {
+  html.theme-snapshot-transition,
+  html.theme-snapshot-transition * {
+    transition: none !important;
+  }
+  html.theme-snapshot-transition::view-transition-group(root) {
+    animation: none;
+  }
+  html.theme-snapshot-transition::view-transition-image-pair(root) {
+    isolation: isolate;
+  }
+  html.theme-snapshot-transition::view-transition-old(root) {
+    animation: none;
+    mix-blend-mode: normal;
+  }
+  html.theme-snapshot-transition::view-transition-new(root) {
+    animation: theme-page-fade 360ms ease-in-out both;
+    mix-blend-mode: normal;
+  }
+}
+@keyframes theme-page-fade {
+  from { opacity: 0; }
+  to { opacity: 1; }
 }

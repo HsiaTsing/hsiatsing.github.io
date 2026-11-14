@@ -29,8 +29,10 @@
       }());
     </script>
     <link rel="preload" href="fonts/noto-serif-sc-name-bold.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="stylesheet" href="styles/main.css?v=11f8305b5407">
-    <script src="scripts/orientation-transition.js?v=0aedd422c9e8"></script>
+    <link rel="stylesheet" href="styles/main.css?v=0d6216d28b47">
+    <link id="dark-theme-styles" rel="stylesheet" href="styles/dark.css?v=01fb5fe3bd91" media="screen and (prefers-color-scheme: dark)">
+    <script src="scripts/theme.js?v=92a9e14a21ac"></script>
+    <script src="scripts/orientation-transition.js?v=3d4c8c324714"></script>
     <script src="scripts/news.js?v=577474c69a87" defer></script>
     <script src="scripts/research-tabs.js?v=15c15d532c47" defer></script>
   </head>
@@ -45,12 +47,12 @@
 <div class="profile-section">
 
 <div class="profile-media"><img class="profile-portrait" src="./images/profile-qing-xia.webp?v=20bc20f30529" alt="Portrait of Qing Xia"/>
-  <p class="profile-links"><a href="./documents/qing-xia-cv.pdf" aria-label="Curriculum vitae" title="Curriculum vitae"><img class="profile-link-icon" src="./images/icons/cv.webp?v=a0cbb91bc000" width="100" height="100" alt=""/></a>
+  <p class="profile-links"><a href="./documents/qing-xia-cv.pdf" aria-label="Curriculum vitae" title="Curriculum vitae"><img class="profile-link-icon profile-link-icon-light" src="./images/icons/cv.webp?v=a0cbb91bc000" width="100" height="100" alt=""/><img class="profile-link-icon profile-link-icon-dark" src="./images/icons/cv-dark.webp?v=2fa41ca9168f" width="100" height="100" alt=""/></a>
     <a href="https://scholar.google.com/citations?user=cEtRHUgAAAAJ" aria-label="Google Scholar" title="Google Scholar"><img class="profile-link-icon" src="./images/icons/google-scholar.webp?v=b3bfce41e735" width="100" height="100" alt=""/></a>
     <a href="https://dblp.org/pid/62/2726-2.html" aria-label="DBLP" title="DBLP"><img class="profile-link-icon" src="./images/icons/dblp.webp?v=c8eda32aafc6" width="100" height="100" alt=""/></a>
     <a href="https://www.researchgate.net/profile/Qing-Xia-11" aria-label="ResearchGate" title="ResearchGate"><img class="profile-link-icon" src="./images/icons/researchgate.webp?v=3765ca88cf92" width="100" height="100" alt=""/></a>
-    <a href="https://github.com/HsiaTsing" aria-label="GitHub" title="GitHub"><img class="profile-link-icon" src="./images/icons/github.webp?v=f9610d120828" width="100" height="100" alt=""/></a>
-    <a href="https://scse.buaa.edu.cn/info/1131/3272.htm" aria-label="Beihang University faculty profile" title="Beihang University"><img class="profile-link-icon" src="./images/icons/beihang.webp?v=000749f2fad2" width="100" height="100" alt=""/></a>
+    <a href="https://github.com/HsiaTsing" aria-label="GitHub" title="GitHub"><img class="profile-link-icon profile-link-icon-light" src="./images/icons/github.webp?v=f9610d120828" width="100" height="100" alt=""/><img class="profile-link-icon profile-link-icon-dark" src="./images/icons/github-dark.webp?v=ed7e6f252996" width="100" height="100" alt=""/></a>
+    <a href="https://scse.buaa.edu.cn/info/1131/3272.htm" aria-label="Beihang University faculty profile" title="Beihang University"><img class="profile-link-icon profile-link-icon-light" src="./images/icons/beihang.webp?v=000749f2fad2" width="100" height="100" alt=""/><img class="profile-link-icon profile-link-icon-dark" src="./images/icons/beihang-dark.webp?v=a574c3f5ce5b" width="100" height="100" alt=""/></a>
   </p>
 </div>
 
@@ -252,8 +254,12 @@
 <p class="all-publications">For a complete and up-to-date publication list, please visit <a href="https://scholar.google.com/citations?hl=en&amp;user=cEtRHUgAAAAJ&amp;view_op=list_works">Google Scholar</a> or <a href="https://dblp.org/pid/62/2726-2.html">DBLP</a>.</p>
 </section>
 
-<p style="margin-top:4px;margin-bottom:0;text-align:right;font-size:13px;color:#666;">Last updated: 2026-11-15</p>
+<p style="margin-top:4px;margin-bottom:0;text-align:right;font-size:13px;color:var(--muted-color, #666);">Last updated: 2026-11-15</p>
 
     </div>
+    <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Switch to dark theme" title="Switch to dark theme" aria-pressed="false" hidden>
+      <svg class="theme-toggle-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M20.5 13A8.5 8.5 0 0 1 11 3.5 8.5 8.5 0 1 0 20.5 13Z"/></svg>
+      <svg class="theme-toggle-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="4"/><path d="M12 2V4M12 20V22M2 12H4M20 12H22M4.9 4.9L6.3 6.3M17.7 17.7L19.1 19.1M4.9 19.1L6.3 17.7M17.7 6.3L19.1 4.9"/></svg>
+    </button>
   </body>
 </html>

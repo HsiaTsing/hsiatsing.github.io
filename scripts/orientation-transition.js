@@ -6,6 +6,8 @@
   var stackedLayout = window.matchMedia(
     "screen and (max-width: 560px) and (orientation: portrait)"
   );
+  // Research panels and publication rows stack at this shared breakpoint.
+  var contentLayout = window.matchMedia("screen and (max-width: 560px)");
   var narrowLayout = window.matchMedia("screen and (max-width: 480px)");
   var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
   var activeAnimations = [];
@@ -96,6 +98,22 @@
       }
     );
 
+    var publicationList = document.querySelector(".publication-list");
+    if (publicationList) {
+      var publications = Array.prototype.slice.call(
+        publicationList.querySelectorAll(".publication-item")
+      );
+      // Animate row offsets as the preceding papers change height, then move
+      // each figure and copy relative to its own row without double-counting.
+      groups.push(captureGroup(publicationList, publications));
+      publications.forEach(function (item) {
+        groups.push(captureGroup(item, [
+          item.querySelector(".publication-figure"),
+          item.querySelector(".publication-copy")
+        ].filter(Boolean)));
+      });
+    }
+
     return groups;
   }
 
@@ -125,7 +143,10 @@
           (last.left + last.width / 2);
       }
 
-      if (element.classList.contains("research-figure") && last.width > 0) {
+      if (
+        (element.classList.contains("research-figure") ||
+          element.classList.contains("publication-figure")) && last.width > 0
+      ) {
         scale = first.width / last.width;
       }
 
@@ -244,7 +265,7 @@
     });
   }
 
-  [compactLayout, stackedLayout, narrowLayout].forEach(function (mediaQuery) {
+  [compactLayout, stackedLayout, contentLayout, narrowLayout].forEach(function (mediaQuery) {
     if (mediaQuery.addEventListener) {
       mediaQuery.addEventListener("change", scheduleLayoutChange);
     } else {
