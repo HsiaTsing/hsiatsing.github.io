@@ -29,7 +29,7 @@
       }());
     </script>
     <link rel="preload" href="fonts/noto-serif-sc-name-bold.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="stylesheet" href="stylesheets/styles.css?v=2a75f27b9a16">
+    <link rel="stylesheet" href="stylesheets/styles.css?v=777e4d1ea334">
     <script src="javascripts/orientation-transition.js"></script>
     <script src="javascripts/news.js?v=585b47d986e8" defer></script>
     <script src="javascripts/research-tabs.js?v=27801c042caa" defer></script>
@@ -96,22 +96,33 @@
 <p class="research-intro">Our research integrates artificial intelligence and virtual reality, drawing on computer vision and geometric computing to model biological systems, analyze multimodal biomedical data, and understand complex anatomical structures and surgical environments. We aim to advance biomedical discovery, quantitative diagnosis, and intelligent intervention.</p>
 
 <div class="research-tabs" role="tablist" aria-label="Research areas" hidden>
-  <button type="button" id="tab-virtual-organs" role="tab" aria-controls="panel-virtual-organs" aria-selected="true" tabindex="0">Virtual Organs</button>
-  <button type="button" id="tab-pathology" role="tab" aria-controls="panel-pathology" aria-selected="false" tabindex="-1" title="Computational Pathology">Comp. Pathology</button>
-  <button type="button" id="tab-medical-imaging" role="tab" aria-controls="panel-medical-imaging" aria-selected="false" tabindex="-1">Medical Imaging</button>
+  <button type="button" id="tab-medical-imaging" role="tab" aria-controls="panel-medical-imaging" aria-selected="true" tabindex="0">Medical Imaging</button>
   <button type="button" id="tab-geometry" role="tab" aria-controls="panel-geometry" aria-selected="false" tabindex="-1">3D Vision &amp; Geometry</button>
+  <button type="button" id="tab-pathology" role="tab" aria-controls="panel-pathology" aria-selected="false" tabindex="-1" title="Computational Pathology">Comp. Pathology</button>
   <button type="button" id="tab-surgery" role="tab" aria-controls="panel-surgery" aria-selected="false" tabindex="-1" title="Surgical Intelligence">Surgical Intell.</button>
+  <button type="button" id="tab-virtual-organs" role="tab" aria-controls="panel-virtual-organs" aria-selected="false" tabindex="-1">Virtual Organs</button>
 </div>
 
 <div class="research-panels">
-<article class="research-item" id="panel-virtual-organs" role="tabpanel" aria-labelledby="tab-virtual-organs" tabindex="0">
+<article class="research-item" id="panel-medical-imaging" role="tabpanel" aria-labelledby="tab-medical-imaging" tabindex="0">
   <div class="research-figure research-figure-static">
-    <img src="./images/research-virtual-organs.webp?v=c51cd73a1fb4" width="480" height="480" alt="A pastel cutaway heart with the ascending aorta clearly visible at the pulmonary artery crossing, blood-flow arrows and molecular motifs." loading="eager">
+    <img src="./images/research-medical-imaging.webp?v=4c18d3852dbf" width="480" height="480" alt="Three overlapping chest X-ray films showing the ribs, lungs, spine and cardiac silhouette." loading="eager">
   </div>
   <div class="research-copy">
-    <h3>Virtual Organ Modeling</h3>
-    <p>We develop multiscale computational models that integrate multimodal biological data from molecular to organ scales. Combining representation learning with mechanistic priors, we aim to link molecular regulation, cellular behavior, tissue organization, and organ function. We study how these models can predict genetic and pharmacological perturbation responses, uncover disease mechanisms, and support therapeutic target identification, drug discovery, and personalized treatment design.</p>
-    <p class="research-topics">Multimodal Biological Modeling · Multiscale Representation Learning · Perturbation Response Prediction · Biological Mechanism Discovery · Therapeutic Design</p>
+    <h3>Medical Image Analysis</h3>
+    <p>We develop data-efficient methods for segmenting, registering, and reconstructing anatomical structures across imaging modalities. Geometric and topological constraints preserve anatomical consistency when annotations or observations are limited. Linking local image features with global organ structure, we recover patient-specific anatomy from incomplete data to support image-based quantitative phenotyping, longitudinal disease assessment, and individualized treatment planning.</p>
+    <p class="research-topics">Segmentation · Registration · Anatomical Reconstruction · Topological Constraints · Quantitative Phenotyping</p>
+  </div>
+</article>
+
+<article class="research-item" id="panel-geometry" role="tabpanel" aria-labelledby="tab-geometry" tabindex="0">
+  <div class="research-figure research-figure-static">
+    <img src="./images/research-geometry.webp?v=821c8d274a42" width="480" height="480" alt="The original blue-gray three-dimensional rabbit with sparse blue-gray triangular mesh lines." loading="eager">
+  </div>
+  <div class="research-copy">
+    <h3>3D Vision &amp; Geometric Computing</h3>
+    <p>We develop geometric representations and learning methods for reconstructing, analyzing, deforming, and generating 3D shapes and dynamic scenes. Combining geometric priors with data-driven models, we capture structural relationships while preserving shape fidelity and temporal coherence. We connect shape analysis and generative modeling with motion capture and animation, and explore efficient rendering for virtual reality and interactive simulation of complex dynamic scenes.</p>
+    <p class="research-topics">3D Reconstruction · Shape Analysis &amp; Deformation · Generative Modeling · Motion &amp; Animation · VR Simulation</p>
   </div>
 </article>
 
@@ -122,29 +133,7 @@
   <div class="research-copy">
     <h3>Computational Pathology</h3>
     <p>We develop multimodal, multiscale methods connecting tissue morphology with molecular profiles, spatial omics, and clinical data to study how cellular composition, tissue organization, and spatial interactions relate to disease progression and patient outcomes. Linking whole-slide images with molecular measurements, we aim to identify biomarkers and characterize tissue phenotypes for cancer diagnosis, prognostic assessment, and evidence-grounded pathology reporting.</p>
-    <p class="research-topics">Whole-Slide Image Analysis · Spatial Omics Integration · Computational Tissue Phenotyping · Biomarker Discovery · Cancer Diagnosis &amp; Prognosis</p>
-  </div>
-</article>
-
-<article class="research-item" id="panel-medical-imaging" role="tabpanel" aria-labelledby="tab-medical-imaging" tabindex="0">
-  <a class="research-figure" href="https://ieeexplore.ieee.org/abstract/document/9328801" aria-label="Read the few-shot whole-heart segmentation paper">
-    <img src="./images/research-medical-imaging.webp?v=4c18d3852dbf" width="480" height="480" alt="Three overlapping chest X-ray films showing the ribs, lungs, spine and cardiac silhouette." loading="eager">
-  </a>
-  <div class="research-copy">
-    <h3>Medical Image Analysis</h3>
-    <p>We develop data-efficient methods for segmenting, registering, and reconstructing anatomical structures across imaging modalities. Geometric and topological constraints preserve anatomical consistency when annotations or observations are limited. Linking local image features with global organ structure, we recover patient-specific anatomy from incomplete data to support image-based quantitative phenotyping, longitudinal disease assessment, and individualized treatment planning.</p>
-    <p class="research-topics">Medical Image Segmentation · Multimodal Registration · Anatomical Reconstruction · Topology-Preserving Learning · Image-Based Phenotyping</p>
-  </div>
-</article>
-
-<article class="research-item" id="panel-geometry" role="tabpanel" aria-labelledby="tab-geometry" tabindex="0">
-  <a class="research-figure" href="https://www.sciencedirect.com/science/article/abs/pii/S0167839619300330" aria-label="Read the 3D shape dataset augmentation paper">
-    <img src="./images/research-geometry.webp?v=821c8d274a42" width="480" height="480" alt="The original blue-gray three-dimensional rabbit with sparse blue-gray triangular mesh lines." loading="eager">
-  </a>
-  <div class="research-copy">
-    <h3>3D Vision &amp; Geometric Computing</h3>
-    <p>We develop geometric representations and learning methods for reconstructing, analyzing, deforming, and generating 3D shapes and dynamic scenes. Combining geometric priors with data-driven models, we capture structural relationships while preserving shape fidelity and temporal coherence. We connect shape analysis and generative modeling with motion capture and animation, and explore efficient rendering for virtual reality and interactive simulation of complex dynamic scenes.</p>
-    <p class="research-topics">3D Reconstruction · Shape Analysis &amp; Deformation · Generative 3D Modeling · Motion Capture &amp; Animation · Virtual Reality &amp; Simulation</p>
+    <p class="research-topics">Whole-Slide Analysis · Spatial Omics · Tissue Phenotyping · Biomarker Discovery · Cancer Diagnosis &amp; Prognosis</p>
   </div>
 </article>
 
@@ -155,7 +144,18 @@
   <div class="research-copy">
     <h3>Surgical Intelligence &amp; Intervention</h3>
     <p>We develop methods for perception, reconstruction, and reasoning in dynamic surgical environments. Combining scene understanding with 3D/4D reconstruction, we model patient anatomy, surgical instruments, and their interactions over time. We integrate spatiotemporal modeling with procedural understanding to relate visual observations to intervention progress, supporting virtual surgery, interactive training, intraoperative decision support, and autonomous surgical systems.</p>
-    <p class="research-topics">Surgical Scene Understanding · 3D/4D Scene Reconstruction · Virtual Surgery · Intraoperative Decision-Making · Autonomous Surgery</p>
+    <p class="research-topics">Scene Understanding · 3D/4D Reconstruction · Procedural Understanding · Virtual Surgery · Autonomous Surgery</p>
+  </div>
+</article>
+
+<article class="research-item" id="panel-virtual-organs" role="tabpanel" aria-labelledby="tab-virtual-organs" tabindex="0">
+  <div class="research-figure research-figure-static">
+    <img src="./images/research-virtual-organs.webp?v=c51cd73a1fb4" width="480" height="480" alt="A pastel cutaway heart with the ascending aorta clearly visible at the pulmonary artery crossing, blood-flow arrows and molecular motifs." loading="eager">
+  </div>
+  <div class="research-copy">
+    <h3>Virtual Organ Modeling</h3>
+    <p>We develop multiscale computational models that integrate multimodal biological data from molecular to organ scales. Combining representation learning with mechanistic priors, we aim to link molecular regulation, cellular behavior, tissue organization, and organ function. We study how these models can predict genetic and pharmacological perturbation responses, uncover disease mechanisms, and support therapeutic target identification, drug discovery, and personalized treatment design.</p>
+    <p class="research-topics">Multiscale Modeling · Biological Data Integration · Perturbation Responses · Disease Mechanisms · Drug Discovery</p>
   </div>
 </article>
 
