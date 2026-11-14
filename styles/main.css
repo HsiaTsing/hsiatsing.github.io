@@ -619,7 +619,7 @@ hr {
 }
 /* Give the profile owner a clear emphasis within the muted author list. */
 .publication-authors strong {
-  color: #242424;
+  color: #595959;
   font-weight: 700;
   white-space: nowrap;
 }
