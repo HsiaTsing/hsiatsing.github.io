@@ -526,7 +526,7 @@ hr {
 /* One shared publication list, outside the research tab panels. */
 .selected-publications {
   min-width: 0;
-  margin: 12px 0 8px;
+  margin: -4px 0 8px;
 }
 .selected-publications-heading {
   padding-bottom: 8px;
